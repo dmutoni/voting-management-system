@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --primaryColor: #032F4A;
+    --secondaryColor: #9AC538;
+}
+.bg-app-primary {
+    background-color: var(--primaryColor);
+}
+.bg-text-color {
+    color: #9AC538;
+}
+.candidate {
+    width: 50%;
+}

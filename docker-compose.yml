@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  fronted: 
+    image: dmutoni/voting-ms-frontend:latest
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    build: 
+      context: fronted
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - "./frontend:/app"
+    links:
+      - backend
+  backend: 
+    image: dmutoni/voting-ms-backend:latest
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    build: 
+      context: backend
+      dockerfile: Dockerfile
+  db: 
+    image: dmutoni/voting-ms-db:latest
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    buid:
+      context: db
+      dockerfile: Dockerfile
+    ports:
+      - "27017:27017"
+  volumes:
+    frontend:
+    backend:
+    db:
