@@ -4,20 +4,22 @@ WORKDIR /usr/app
 
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY ./package.json /usr/app/
+COPY ./package.json /usr/app
 
-RUN yarn install --production
+RUN npm install
 
-COPY . .
+COPY . . 
 
 RUN npm run build
 
-FROM  nginx:1.15
-COPY --from=build  /usr/app/dist /usr/share/nginx/html
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-# RUN npm run build
-# CMD [ "npm","start" ]
+
+FROM nginx:1.17.8-alpine
+
+COPY --from=build /usr/app/dist /usr/share/nginx/html
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY nginx/nginx.conf /etc/nginx/conf.d
 
 EXPOSE 80
 

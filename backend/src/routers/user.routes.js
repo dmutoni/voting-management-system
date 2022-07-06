@@ -19,7 +19,8 @@ const router = express.Router({
     mergeParams: true
 });
 
-router.post("/", [protect, authorize('Standard')],createUser);
+// router.post("/", [protect, authorize('Standard')],createUser);
+router.post("/",createUser);
 
 router.route('/').get(getUsers);
 

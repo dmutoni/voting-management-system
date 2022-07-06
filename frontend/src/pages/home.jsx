@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Candidate from "../components/candidate";
 import Header from "../components/header";
 import { getCandidates } from "../services/candidate.service";
 
 export default function Home() {
-  const [candidates, setCandidates] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [candidates, setCandidates] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getCandidates()
@@ -40,7 +40,9 @@ export default function Home() {
         <div className="col-lg-6 col-md-12 col-sm-12 d-none d-lg-block mt-md-6">
           <img
             className="w-50 d-block mx-auto"
-            src={"../assets/images/phone.png"}
+            src={
+              "https://helios-i.mashable.com/imagery/articles/068h03vAKs6zL4S5NYXNd9o/hero-image.fill.size_1248x702.v1640814647.jpg"
+            }
           />
         </div>
       </div>

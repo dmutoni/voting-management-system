@@ -4,7 +4,7 @@ import Sidebar from "../components/sidebar";
 
 export default function AddCandidate() {
   return (
-    <div className="d-flex flex-row gap-4">
+    <div className="d-flex flex-row gap-4 ">
       <div className="col-2 ">
         <Sidebar />
       </div>
